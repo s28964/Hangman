@@ -2,9 +2,9 @@ from database import session, init_db
 from models import Word
 
 def add_words():
-    init_db() #tworzy wszystkie tabele na podstawie pliku models.py jeżeli jeszcze nie są stworzone
+    init_db()
 
-    word_entries = [ #krotka zawierająca po 10 haseł do 10 kategorii
+    word_entries = [
 
         ("POWIEDZENIA", "LEPIEJ PÓŹNO NIŻ WCALE"),
         ("POWIEDZENIA", "PIERWSZE KOTY ZA PŁOTY"),
@@ -127,8 +127,8 @@ def add_words():
     ]
 
 
-    session.bulk_save_objects([Word(category=cat, value=val) for cat, val in word_entries]) #Tworzy listę obiektów Word i zapisuje je do bazy danych za pomocą SQLAlchemy
-    session.commit() #zatwierdza dane w bazie
+    session.bulk_save_objects([Word(category=cat, value=val) for cat, val in word_entries])
+    session.commit()
 
-if __name__ == "__main__": #Umożliwia uruchomienie tego pliku jako samodzielnego pliku
+if __name__ == "__main__":
     add_words()

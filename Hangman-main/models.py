@@ -1,10 +1,10 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base() #Tworzy klasę bazową, z której będą dziedziczyć wszystkie modele (wymóg SQLAlchemy)
+Base = declarative_base()
 
 class User(Base):
-    __tablename__ = 'users' #Definiuje tabelę users w bazie danych
+    __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
     username = Column(String(100), unique=True, nullable=False)
@@ -13,7 +13,7 @@ class User(Base):
     games_won = Column(Integer, default=0)
 
 class Word(Base):
-    __tablename__ = 'words' #Definiuje tabelę words w bazie danych
+    __tablename__ = 'words'
 
     id = Column(Integer, primary_key=True)
     category = Column(String(100), nullable=False)
