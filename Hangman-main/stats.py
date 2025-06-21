@@ -17,7 +17,7 @@ def get_player_stats(username: str):
         "win_rate": round(win_rate, 2)
     }
 
-def get_top_players(limit=5):
+def get_top_players(limit=10):
     users = session.query(User).filter(User.games_played > 0).all()
     ranked = sorted(users, key=lambda u: u.games_won, reverse=True)
 
